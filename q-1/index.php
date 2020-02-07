@@ -1,11 +1,16 @@
 <?php
-    //hardcoded arrays of array with student details
+
+    /**
+    *@file
+    * Implementation of question 1.
+    */
+    // Hardcoded arrays of array with student details .
     $student_details =  array( 
                 array('id' => '101', 'name' => 'Yogita', 'dob' => strtotime('19-12-1998'), 'class' => '12', 'passed' => '0', 'marks' => array('P' => '56', 'C ' => '12', 'M'=>'50') ),
                 array('id' => '102', 'name' => 'Zubin', 'dob' => strtotime('02-08-1999'), 'class' => '10', 'passed' => '0', 'marks' => array('SS' => '30', 'S' => '14', 'E'=>'03')),
                 array('id' => '103', 'name' => 'Yash', 'dob' => strtotime('24-03-2000'), 'class' => '11', 'passed' => '0', 'marks' => array('E' => '30', 'B' => '29', 'M'=>'35'))
                        );
-    //array of subjects according to classes
+    // Array of subjects according to classes .
     $subject_details =  array(
                 12 => array(array('name' => 'Physics', 'code' => P, 'mm' => 25),
                 array('name' => 'Chemistry', 'code' => C, 'mm' => 30),
@@ -17,7 +22,7 @@
                 array('name' => 'Sanskrit', 'code' => S, 'mm' => 40),
                 array('name' => 'English', 'code' => E, 'mm' => 40))
                  );
-    //array containing marks obtained by students
+    // Array containing marks obtained by students .
     $marks = array(
             array('id' => '101', 'code' => 'P', 'obtained' => '56'),
             array('id' => '101', 'code' => 'C', 'obtained' => '12'),
@@ -29,7 +34,9 @@
             array('id' => '103', 'code' => 'B', 'obtained' => '29'),
             array('id' => '103', 'code' => 'M', 'obtained' => '35'),
             );
-    //function for subject as per class
+    /** 
+    * Function for subject as per class .
+    */
     function get_subject ($class, $subject_details) {         
         $show = $subject_details[$class];
         foreach ($show as $key => $value) {
@@ -42,11 +49,17 @@
           <th>SUBJECT CODE</th>
           <th>MIN. MARKS</th>
           </tr>";
-    //function call to get subject for grade 12
+    /** 
+    * Function call to get subject for grade 12 .
+    */
     get_subject(12, $subject_details);
-    //function call to get subject for grade 11
+    /** 
+    * Function call to get subject for grade 11 .
+    */
     get_subject(11, $subject_details);
-    //function call to get subject for grade 10
+    /** 
+    * Function call to get subject for grade 10 .
+    */
     get_subject(10, $subject_details);
     echo "</table><br>";
     foreach ($student_details as $key => $value) {
@@ -63,7 +76,7 @@
                 }
             }
         }
-    //check whether pass or fail
+    // Check whether pass or fail .
         if($count >= 2) {
             $student_details[$key]['result'] = "PASS";
         }
@@ -71,7 +84,9 @@
             $student_details[$key]['result'] = "FAIL";
         }
     }
-    //function return marks of student
+    /** 
+    * Function return marks of student .
+    */
     function get_mark($marks) {
         echo '<table border = "1px"><tr><th>Student id</th><th>Subject Code</th><th>Marks Obtained</th></tr>';
         foreach ($marks as $mark) 
@@ -82,7 +97,9 @@
     }
     get_mark($marks);
     echo "<br>";
-    //final output
+    /** 
+    * Final output .
+    */
     function student($student_details, $marks, $subject_details) {   
         echo '<table border = "1px">
               <th>NAME</th>
